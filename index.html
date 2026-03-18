@@ -1,0 +1,128 @@
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:var(--font-sans,"system-ui",sans-serif);background:var(--color-background-primary);color:var(--color-text-primary);padding:24px 20px;font-size:14px}
+h1{font-size:20px;font-weight:500;margin-bottom:4px;color:var(--color-text-primary)}
+.sub{font-size:13px;color:var(--color-text-secondary);margin-bottom:20px}
+.section-label{font-size:11px;font-weight:500;letter-spacing:.06em;text-transform:uppercase;color:var(--color-text-tertiary);margin:20px 0 8px}
+table{width:100%;border-collapse:collapse;font-size:13px}
+th{text-align:left;font-weight:500;font-size:11px;text-transform:uppercase;letter-spacing:.05em;color:var(--color-text-tertiary);padding:6px 10px;border-bottom:1px solid var(--color-border-tertiary)}
+td{padding:9px 10px;border-bottom:1px solid var(--color-border-tertiary);vertical-align:top;line-height:1.5}
+tr:last-child td{border-bottom:none}
+.tag{display:inline-block;font-size:11px;font-weight:500;padding:2px 7px;border-radius:4px;white-space:nowrap}
+.t-poc{background:#E1F5EE;color:#0F6E56}
+.t-ide{background:#E6F1FB;color:#185FA5}
+.t-agent{background:#EEEDFE;color:#534AB7}
+@media(prefers-color-scheme:dark){
+  .t-poc{background:#085041;color:#9FE1CB}
+  .t-ide{background:#0C447C;color:#B5D4F4}
+  .t-agent{background:#3C3489;color:#CECBF6}
+}
+.pill{font-size:11px;padding:1px 6px;border-radius:10px;background:var(--color-background-secondary);color:var(--color-text-secondary);display:inline-block;margin:1px 2px 1px 0;white-space:nowrap}
+.lessons{margin-top:24px}
+.lesson{display:flex;gap:10px;align-items:flex-start;padding:10px 0;border-bottom:1px solid var(--color-border-tertiary)}
+.lesson:last-child{border-bottom:none}
+.num{font-size:18px;font-weight:500;color:var(--color-text-tertiary);min-width:28px;line-height:1.3}
+.lesson-title{font-weight:500;font-size:13px;margin-bottom:2px}
+.lesson-body{font-size:12px;color:var(--color-text-secondary);line-height:1.5}
+.footer{margin-top:24px;padding-top:16px;border-top:1px solid var(--color-border-tertiary);font-size:12px;color:var(--color-text-tertiary)}
+</style>
+
+<h1>AI Coding Tools — Field Guide</h1>
+<div class="sub">Pick the right tool for the job · Not every tool for every job</div>
+
+<div class="section-label">Tier 1 — Idea &amp; Prototype (no repo needed)</div>
+<table>
+  <tr><th style="width:160px">Tool</th><th style="width:80px">Tier</th><th>Use when…</th><th>Don't use when…</th><th style="width:120px">Sweet spot</th></tr>
+  <tr>
+    <td><strong>Google AI Studio</strong></td>
+    <td><span class="tag t-poc">POC</span></td>
+    <td>You need a working demo in &lt;10 min, multimodal input (images, video)</td>
+    <td>You need code that other devs will maintain</td>
+    <td><span class="pill">Rapid mockup</span><span class="pill">Multimodal</span></td>
+  </tr>
+  <tr>
+    <td><strong>Claude Artifacts</strong><br><span style="font-size:11px;color:var(--color-text-tertiary)">claude.ai</span></td>
+    <td><span class="tag t-poc">POC</span></td>
+    <td>Quick interactive React/HTML demo, sharing a visual idea</td>
+    <td>Anything you plan to copy-paste into a real codebase</td>
+    <td><span class="pill">Visual POC</span><span class="pill">Shareable</span></td>
+  </tr>
+
+</table>
+
+<div class="section-label">Tier 2 — IDE Copilot (inline, file-aware)</div>
+<table>
+  <tr><th style="width:160px">Tool</th><th style="width:80px">Tier</th><th>Use when…</th><th>Don't use when…</th><th style="width:120px">Sweet spot</th></tr>
+  <tr>
+    <td><strong>GitHub Copilot</strong></td>
+    <td><span class="tag t-ide">IDE</span></td>
+    <td>Tab-complete boilerplate, quick explain, already in VS Code</td>
+    <td>Multi-file agentic rewrites</td>
+    <td><span class="pill">Autocomplete</span><span class="pill">Explain</span></td>
+  </tr>
+
+  <tr>
+    <td><strong>Cursor</strong></td>
+    <td><span class="tag t-ide">IDE</span></td>
+    <td>Multi-file changes, repo indexing, power users</td>
+    <td>Unconstrained tasks — always add .cursor/rules</td>
+    <td><span class="pill">Multi-file</span><span class="pill">Agent</span></td>
+  </tr>
+  <tr>
+    <td><strong>Antigravity</strong></td>
+    <td><span class="tag t-ide">IDE</span></td>
+    <td>Cursor alternative, fast iteration, newer model integrations</td>
+    <td>Established enterprise/team workflows (newer, less proven)</td>
+    <td><span class="pill">Fast</span><span class="pill">Hackathon</span></td>
+  </tr>
+</table>
+
+<div class="section-label">Tier 3 — Autonomous / Agentic (runs commands, opens PRs)</div>
+<table>
+  <tr><th style="width:160px">Tool</th><th style="width:80px">Tier</th><th>Use when…</th><th>Don't use when…</th><th style="width:120px">Sweet spot</th></tr>
+  <tr>
+    <td><strong>Copilot Issue Assign</strong><br><span style="font-size:11px;color:var(--color-text-tertiary)">github.com</span></td>
+    <td><span class="tag t-agent">Agentic</span></td>
+    <td>Well-scoped, atomic GitHub issues with clear acceptance criteria</td>
+    <td>Vague issues, anything touching multiple systems</td>
+    <td><span class="pill">Auto PR</span><span class="pill">GitHub-native</span></td>
+  </tr>
+  <tr>
+    <td><strong>Gemini CLI</strong></td>
+    <td><span class="tag t-agent">Agentic</span></td>
+    <td>Terminal tasks, multimodal (feed screenshots), quick scripts</td>
+    <td>Deep codebase comprehension without explicit context</td>
+    <td><span class="pill">Terminal</span><span class="pill">Multimodal</span></td>
+  </tr>
+  <tr>
+    <td><strong>Claude Code</strong></td>
+    <td><span class="tag t-agent">Agentic</span></td>
+    <td>Full-repo agentic tasks, MCP integrations, CLAUDE.md workflows</td>
+    <td>Quick one-liner suggestions (overkill)</td>
+    <td><span class="pill">MCP</span><span class="pill">Full-repo</span></td>
+  </tr>
+</table>
+
+<div class="lessons">
+  <div class="section-label">The 5 Core Lessons</div>
+  <div class="lesson"><div class="num">1</div><div><div class="lesson-title">POC ≠ foundation</div><div class="lesson-body">Use AI Studio / Claude Artifacts to prove the idea fast. Then throw the code away. Extract a spec, start fresh. Never refactor a POC into production code.</div></div></div>
+  <div class="lesson"><div class="num">2</div><div><div class="lesson-title">AI knowledge has an expiration date</div><div class="lesson-body">For any external API, feed the current docs. AI training data is frozen — it will confidently generate deprecated code. Always verify against the source.</div></div></div>
+  <div class="lesson"><div class="num">3</div><div><div class="lesson-title">Planning is the feature</div><div class="lesson-body">Always produce a spec or design doc before asking for code. Ask for a plan first, review it, then implement. The planning step costs 5 minutes and saves hours of debugging.</div></div></div>
+  <div class="lesson"><div class="num">4</div><div><div class="lesson-title">Context is the prompt</div><div class="lesson-body">AI doesn't see your system unless you show it. Paste your data shapes, existing module, and constraints every time. Anchoring is the skill that separates useful output from hallucinated output.</div></div></div>
+  <div class="lesson"><div class="num">5</div><div><div class="lesson-title">Scope or suffer</div><div class="lesson-body">"Make it better" is not a spec. Name the files to touch, the files to leave alone, and the behavior that must not change. Commit guardrails to CLAUDE.md or .cursor/rules so they apply to every session automatically.</div></div></div>
+  <div class="lesson"><div class="num">6</div><div><div class="lesson-title">Decompose before you delegate</div><div class="lesson-body">Handing AI a large task produces large tangled output. Break work into atomic units — one function, one file, one concern — before prompting. Small inputs produce reviewable, mergeable outputs.</div></div></div>
+  <div class="lesson"><div class="num">7</div><div><div class="lesson-title">Tests are your receipt</div><div class="lesson-body">AI-generated code without tests is a promise with no proof. Write or generate tests alongside implementation, not after. Tests also make refactoring safe — ask AI to write them before it changes anything.</div></div></div>
+  <div class="lesson"><div class="num">8</div><div><div class="lesson-title">Leave a paper trail</div><div class="lesson-body">AI has no memory between sessions. CLAUDE.md, .cursor/rules, decision logs, and artifact files are its persistent memory. If it's not written down, the next session starts from zero. Your files are the brain.</div></div></div>
+</div>
+
+<div class="footer">
+  <div style="margin-bottom:12px;font-style:italic;font-size:13px;color:var(--color-text-secondary)">"The difference isn't better prompts — it's treating AI like an engineer, not a code generator."</div>
+  <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:8px">
+    <div>
+      <div style="font-weight:500;font-size:13px;color:var(--color-text-primary)">Jeff Rhatigan</div>
+      <div style="margin-top:3px;display:flex;gap:12px;flex-wrap:wrap">
+        <a href="https://www.linkedin.com/in/jeff-rhatigan/" style="color:var(--color-text-secondary);text-decoration:none;font-size:12px">linkedin.com/in/jeff-rhatigan</a>
+      </div>
+    </div>
+  </div>
+</div>
